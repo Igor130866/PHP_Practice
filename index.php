@@ -73,6 +73,7 @@ echo "</table>";
       function getUserName($user) {
         return $user["name"];
       }
+      
       echo getUserName($vasyapetrov);
       echo"<br>";
       
@@ -81,6 +82,7 @@ echo "</table>";
         global $text;
         $text .= " anothertext";
       }
+      
       showText();
       echo $text;
       echo"<br>";
@@ -93,6 +95,7 @@ echo "</table>";
           func();
         }
       }
+      
       func();
       func();
       echo"<br>";
