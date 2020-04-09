@@ -61,6 +61,7 @@ echo "</table>";
             echo "<td>$j * $i = $multiply</td>";
           }
           echo "<tr>";
+        
         }
     ?>    
   </table>
@@ -100,6 +101,8 @@ echo "</table>";
       echo var_dump($cars).'<br>';
       echo $lastCar."<br>";
       echo var_dump($lastCar);
+    phpinfo
+    
     ?>
 </div>
 
