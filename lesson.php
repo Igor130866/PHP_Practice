@@ -61,7 +61,6 @@ echo "</table>";
             echo "<td>$j * $i = $multiply</td>";
           }
           echo "<tr>";
-        
         }
     ?>    
   </table>
@@ -73,7 +72,6 @@ echo "</table>";
       function getUserName($user) {
         return $user["name"];
       }
-      
       echo getUserName($vasyapetrov);
       echo"<br>";
       
@@ -82,7 +80,6 @@ echo "</table>";
         global $text;
         $text .= " anothertext";
       }
-      
       showText();
       echo $text;
       echo"<br>";
@@ -95,7 +92,6 @@ echo "</table>";
           func();
         }
       }
-      
       func();
       func();
       echo"<br>";
@@ -104,8 +100,44 @@ echo "</table>";
       echo var_dump($cars).'<br>';
       echo $lastCar."<br>";
       echo var_dump($lastCar);
-    phpinfo
-    
+      echo"<br>";
     ?>
 </div>
+<div>
+  <?php
+  $cmsList = ["Wordpress","Joomla","1C-Bitrix","Moodle","OpenCart"];
+  $sliceList = array_slice($cmsList, 2, 2);
+  echo var_dump($sliceList);
+  echo"<br><br>";
+  
+  $family = array(
+  "Папа" => "Вася",
+  "Мама" => "Света",
+  "Сын" => "Дима",
+  "Дочь" => "Лера",
+  "Кошка" => "Мурка",
+  "Попугай" => "Понч",
+  );
+  $sliceList2 = array_slice($family, 2, 2);
+  echo var_dump($sliceList2);
+  echo"<br>";
+  echo"<br>";
 
+  $cmsList = ["Wordpress","Joomla","1C-Bitrix","Moodle","OpenCart"];
+  $deleteCms = array_splice($cmsList, 2, 2, ["Drupal","ModX"]);
+  echo var_dump($cmsList)."<br><br>";
+  echo var_dump($deleteCms);
+  echo"<br><br>";
+  
+  $revCmsList = array_reverse($cmsList);
+  echo var_dump($revCmsList)."<br>"."<br>";
+  
+  $cars = ['Лексус','Ламборджини','БМВ','Феррари','Лада седан (баклажан)'];
+  sort($cars);
+  echo var_dump($cars);
+  echo"<br><br>";
+  
+  $haslada = in_array('Лада седан (баклажан)',$cars);
+  echo var_dump($haslada);
+  ?>
+</div>

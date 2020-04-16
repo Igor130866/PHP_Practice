@@ -1,6 +1,7 @@
 <?php
 session_start();
 header('Content-type: text/html; charset=utf-8'); 
+require_once('db.php');
 
 $login = htmlspecialchars(trim($_POST["login"]));
 $pass = htmlspecialchars(trim($_POST["pass"]));
@@ -9,16 +10,6 @@ $pass = htmlspecialchars(trim($_POST["pass"]));
   exit("Не все поля заполнены !!!");
 }
 
-$dbhost = "localhost";
-$dbuser = "f91665c8_auth";
-$dbpass = "Holmogor1308";
-$dbname = "f91665c8_auth";
-$mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-$mysqli->set_charset("utf-8");
-
-if ($mysqli->connect_error) {
- die("Не удалось подключиться к БД ".$mysqli->connect_error);
-}
 
 $result = $mysqli->query("SELECT * FROM `users` WHERE `login`='$login'")->fetch_assoc();
 
@@ -35,4 +26,5 @@ $_SESSION['birthdate'] = $result['birthdate'];
 
 //header("Location: lk.php"); - если на страницу auth_obr.php ничего не выводилось
 
-exit("<script>window.location.href='lk.php'</script>");
+exit("ok");
+

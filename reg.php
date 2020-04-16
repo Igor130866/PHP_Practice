@@ -8,7 +8,11 @@
         <div class="col-8">
           <h1 class="text-center">Регистрация</h1>
             <form action = "reg_obr.php" method = "POST">
+              <p class = "d-none text-danger error-message"></p>
               <div class="input-group mb-3">
+                
+                
+                
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="basic-addon1"><i class="fa fa-info" aria-hidden="true"></i></span>
                 </div>
@@ -56,5 +60,35 @@
         </div>
       </div>
     </div>
+   
+   <script>
+     let form = document.querySelector('form[action = "reg_obr.php"]');
+     form.onsubmit = (e) => {
+        e.preventDefault();
+       
+       let formData = new FormData(form);
+       // console.log( formData.get('patronymic') );
+       fetch('reg_obr.php', {
+         method: "POST",
+         body: formData,
+       })
+       .then(response => response.text())
+       .then(result => {
+         if (result =="ok") {
+           alert("Пользователь однозначно зарегистрирован");
+           window.location.href = "auth.php";
+         } else {
+           showErrorMessage(result);
+         }
+       });
+     }
+     
+     function showErrorMessage(message) {
+        let messageParagraph = form.querySelector('.error-message');
+        messageParagraph.classList.remove("d-none");
+        messageParagraph.innerHTML = message;
+      }
+   </script>
+   
    
 <?php require_once('site_components/footer.php'); ?>

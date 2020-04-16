@@ -62,7 +62,7 @@ if (!result) {
   exit("Не удалось добавить пользователя");
 }
 
-exit("Пользователь $name успешно зарегистрирован");
+exit("ok");
 
 exit("$login | $pass | $passrepeat | $name | $lastname | $patronymic | $birthdate");
 
